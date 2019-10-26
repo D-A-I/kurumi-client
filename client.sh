@@ -10,7 +10,7 @@ echo '- kurumi-clientを実行します..'
 CRAWLER_PATH=../kurumi-crawler/
 # `node`のパス
 NODE_PATH=/Users/kanegadai/.nodebrew/current/bin/node
-# POST用のcurlコマンド
+# POST用の`curl`コマンド
 CURL_POST='/usr/bin/curl -H "Content-Type: application/json"'
 # POST先のURL
 URL=http://localhost:3000/withdrawals
@@ -22,7 +22,7 @@ find ${CRAWLER_PATH}json/ -name "*.json" -mtime +3 -print | xargs rm;
 
 # `../kurumi-crawler/dist/index.js`をキックする
 echo '- kurumi-crawlerを実行します..'
-# cd ${CRAWLER_PATH} && ${NODE_PATH} ./dist/index.js
+cd ${CRAWLER_PATH} && ${NODE_PATH} ./dist/index.js
 
 if [ $? -eq 0 ]
 then
@@ -33,5 +33,5 @@ then
     done
 else
     # nodeの戻り値が不正だった場合、slackへ通知して処理終了 >> slackへの通知を別スクリプトにする
-    echo '- クローリングに失敗しました。kurumi-clawler実行結果を確認してください..'
+    echo '- クローリングに失敗しました。kurumi-crawler実行結果を確認してください..'
 fi
