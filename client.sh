@@ -15,7 +15,7 @@ CURL_POST='/usr/bin/curl -H "Content-Type: application/json"'
 # POST先のURL
 URL=http://localhost:3000/withdrawals
 
-# クローラー下の"更新日付が3日以前"のファイルを検索
+# クローラー下の"更新日付が3日以前"のファイルを削除
 # （xargs >> 標準入力からコマンドを作成）
 echo '- 3日以前のクローリング結果ファイルを削除します..'
 find ${CRAWLER_PATH}json/ -name "*.json" -mtime +3 -print | xargs rm;
