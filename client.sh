@@ -22,8 +22,9 @@ find ${CRAWLER_PATH}json/ -name "*.json" -mtime +3 -print | xargs rm;
 
 # `../kurumi-crawler/dist/index.js`をキックする
 echo '- kurumi-crawlerを実行します..'
-# cd ${CRAWLER_PATH} && ${NODE_PATH} ./dist/index.js
+cd ${CRAWLER_PATH} && ${NODE_PATH} ./dist/index.js
 
+echo '- クローリング結果 >> '$?
 if [ $? -eq 0 ]
 then
     # クローラー下の"更新日付が当日"のファイルをcurlでP0STする
@@ -31,7 +32,8 @@ then
     for file in `find ${CRAWLER_PATH}json/ -name "*.json" -mtime 0 -print`; do
         # `curl`の標準出力は捨てる
         ${CURL_POST} ${URL} -d @${file} >/dev/null
-        # >> `json-server`の場合"Could not resolve host: application"というエラーが出るが、一旦無視
+        # >> `curl`から`json-server`へアップロードした場合、
+        # "Could not resolve host: application"というエラーが出る。一旦無視
     done
     echo '- POSTが終了しました..'
 else
