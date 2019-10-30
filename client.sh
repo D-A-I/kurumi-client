@@ -22,7 +22,7 @@ find ${CRAWLER_PATH}json/ -name "*.json" -mtime +3 -print | xargs rm;
 
 # `../kurumi-crawler/dist/index.js`をキックする
 echo '- kurumi-crawlerを実行します..'
-cd ${CRAWLER_PATH} && ${NODE_PATH} ./dist/index.js
+# cd ${CRAWLER_PATH} && ${NODE_PATH} ./dist/index.js
 
 echo '- クローリング結果 >> '$?
 if [ $? -eq 0 ]
