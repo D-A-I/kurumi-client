@@ -3,11 +3,8 @@
 # 開始メッセージ
 echo '- kurumi-clientを実行します..'
 
-# 現在のディレクトリの絶対パス取得
-# CURRENT_PATH=$(cd $(dirname $0) && pwd)
-
 # `kurumi-crawler`のパス
-CRAWLER_PATH=../kurumi-crawler/
+CRAWLER_PATH=/Users/kanegadai/Documents/MyDesk/02_develop/kurumi-crawler/
 # `node`のパス
 NODE_PATH=/Users/kanegadai/.nodebrew/current/bin/node
 # POST用の`curl`コマンド
