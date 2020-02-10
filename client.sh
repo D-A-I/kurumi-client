@@ -3,12 +3,12 @@
 # 開始メッセージ
 echo '- kurumi-clientを実行します..'
 
-# `kurumi-crawler`のパス
-CRAWLER_PATH=/Users/kanegadai/Documents/MyDesk/02_develop/kurumi-crawler/
 # `node`のパス
 NODE_PATH=/Users/kanegadai/.nodebrew/current/bin/node
 # POST用の`curl`コマンド
 CURL_POST='/usr/bin/curl -H "Content-Type: application/json"'
+# `kurumi-crawler`のパス
+CRAWLER_PATH=/Users/kanegadai/Documents/MyDesk/02_develop/kurumi-crawler/
 # DEBUG用のPOST先（json-server）
 # URL=http://localhost:3000/withdrawals
 # 本番のPOST先
